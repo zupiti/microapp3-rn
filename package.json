@@ -19,8 +19,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "microfront2-rn": "*",
-    "shared-rn": "*"
+    "microfront2-rn": "git+https://github.com/zupiti/microfront2-rn.git#main",
+    "shared-rn": "git+https://github.com/zupiti/shared-rn.git#main"
   },
   "peerDependencies": {
     "react": "*",
