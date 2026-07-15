@@ -2,9 +2,35 @@
 
 Feature module React Native consumido pelo `microapp-main-app-rn`.
 
+## Arquitetura interna
+
+Camadas obrigatórias (fluxo unidirecional):
+
+```text
+entities → services → repositories → hooks → ui/screens → ui/components
+```
+
+```text
+src/
+├── entities/       # ContadorSessao
+├── services/       # ContadorService (in-memory)
+├── repositories/   # ContadorRepository
+├── hooks/          # useContador
+├── utils/
+├── ui/
+│   ├── screens/    # Microapp3Screen
+│   ├── components/
+│   └── styles/
+└── index.tsx
+```
+
+**Hooks:** uma responsabilidade; só repository; screens sem `useEffect` de dados. Fronteiras no `.eslintrc.js`.
+
+Detalhes canônicos: `microapp-main-app-rn/rules-project/rules.md` e `IMPLEMENTACAO.md` §6.2.1.
+
 ## O Que Exporta
 
-- `Microapp3Screen`: tela com botoes e contador.
+- `Microapp3Screen`: botões e contador (via hook + repository).
 - Usa `microfront2-rn` e `shared-rn`.
 
 ## Uso Pelo Main App
